@@ -20,3 +20,20 @@ let persona : PersonaSoloLectura = {
 }
 
 console.log(persona.nombre);
+
+// Template Literal Types
+
+type Variantes = "pequeño" | "mediano" | "grande";
+type ClasesCSS = `boton-${Variantes}`;
+
+type EsNumero<T> = T extends number ? true : false;
+
+function esNumero<T>(valor: T): EsNumero<T> {
+    return typeof valor === 'number' as EsNumero<T>;
+}   
+
+const resultado1 = esNumero(5); // true
+const resultado2 = esNumero("5"); // false
+
+console.log(resultado1); // true
+console.log(resultado2); // false
